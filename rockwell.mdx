@@ -1,0 +1,188 @@
+---
+title: "Rockwell Configuration Guide in KMS Application "
+description: "Description of your new file."
+---
+
+**1. Launch the KMS Application** 
+
+- Open the **KMS Application** on your system. 
+
+
+- You will land on the **Home Page**. 
+
+<img
+  src="/home.png"
+  alt="R1 Pn"
+  title="R1 Pn"
+  style={{ width:"69%" }}
+/>
+
+**2.  Navigate to Communication Tab** 
+
+- On the home screen, click on the **Communication** tab. 
+
+
+- From the available communication options, **select “Rockwellconnector”**. 
+
+![R2 Pn](/images/r2.png)
+
+**3. Add Configuration** 
+
+- Click **Add CONNECTION**. 
+
+
+- Enter the following details: 
+
+1. **Name**: Assign a unique name for this connection. 
+2. **ETHERNET IP**: Provide the target device IP address. 
+3. **SELECT DRIVER**: Choose the driver type from the dropdown menu. 
+
+- Click **Connect** to establish communication. 
+
+![R3 Pn](/images/r3.png)
+
+**4.  Create Group Configuration** 
+
+- After successful connection, **add a new group** by entering **Group Name** 
+
+
+- In the **Select Tags** dropdown, choose the desired tag(s). 
+
+
+- The selected tag(s) automatically appear in the **Tag Details** section under the **Tag Name** column. 
+
+
+- Fill in the **Name** field corresponding to each tag. 
+
+
+- Confirm that the **Tag Name** field correctly reflects the selected tags. 
+
+
+- Enable features for each tag: 
+
+1. **Archive**: Check if the tag data should be archived. 
+2. **Context**: Check if context information should be attached. 
+3. **Writeback**: Toggle if you need to send data back to the PLC. 
+
+![R4 Pn](/images/r4.png)
+
+![M6 Pn](/images/m6.png)
+
+- Use the **blue circle icon (Export)** to **download** the current tag group configuration as a file. 
+
+
+- This exported file can later be imported to quickly replicate or reuse the group configuration. 
+
+
+- Now add a new group by clicking on top right corner \+ icon. 
+
+
+- Use the **green circle icon (Import)** on the top-right to **import** a tag group configuration from a previously exported file. 
+
+
+- Place the downloaded file in this import section and change the names of the Name field. 
+
+
+- Click the **icon (Preview)** on the right side of the screen to preview details of all tags configured in the group before saving. 
+
+![R6 Pn](/images/r6.png)
+
+![R7 Pn](/images/r7.png)
+
+**5. Configure Tag Group Settings** 
+
+- Click the **bottom**-**right arrow icon** to open the **Tag Group Configuration** popup window. 
+
+
+- In the **Tag Group Configuration** form: 
+
+1. **Logic Type**: Select the desired logic type. 
+2. **Archive Time (in seconds)**: Set archive interval. 
+
+- **Archive Conditions**: 
+
+1. Choose the condition tag from the dropdown 
+2. Enter the condition value. 
+
+- **Enable**: Check this box to enable the archive condition. 
+
+
+- **Measurement Name**: Enter a measurement name if required. 
+
+
+- Once filled, click **Save All** to save the Tag Group Configuration.
+
+  ![R8 Pn](/images/r8.png)
+
+### **Configuration for SLCDriver :** 
+
+The above section mirrors the configuration process for the LogixDriver ,Now is tailored specifically for SLCDriver. 
+
+![R9 Pn](/images/r9.png)
+
+**Add Group Name** 
+
+- In the **Add Group** screen, set the **Group Name**. 
+
+
+- This creates a new group to organize tags related to the SLC controller. 
+
+**Populate Tag Details for SLC Tags**  
+
+- Under the **Tag Details** section: 
+
+1. **Tag Name**: Enter a unique name for each tag. 
+2. **File Number**: Specify the SLC file number from where the tag data should be read. 
+3. **Offset**: Enter the offset inside the specified file number. 
+4. **Types**: Select the tag data type from the dropdown.  
+
+<img
+  src="/images/r10.png"
+  alt="R10 Pn"
+  title="R10 Pn"
+  style={{ width:"93%" }}
+/>
+
+**Tag Group Configuration** 
+
+In the **Logic Type** dropdown, select **Trigger Tags**. \
+ ➔ This sets the tag group to capture data based on trigger events rather than time-based cycles. 
+
+**Choose Trigger Tag** 
+
+- In the **Trigger Tag** dropdown, select the tag you want to act as the trigger. \
+   ➔ This tag’s state changes will determine when data is captured. 
+
+**Set Capture Data Edge** 
+
+- Choose when data should be captured relative to the trigger tag’s signal change: 
+
+1. **RE (Rising Edge)** → Capture on transition from 0 → 1. 
+2. **FE (Falling Edge)** → Capture on transition from 1 → 0. 
+
+**Set Insert Data Edge** 
+
+- Choose on which signal edge to insert the captured data into your data store: 
+
+
+- **RE (Rising Edge)** or **FE (Falling Edge)**. 
+
+**Enable Event Capture (Optional)** 
+
+- Check **Event Capture** if you want to record detailed event metadata (e.g., timestamp, event details) when the trigger occurs. 
+
+**Set Measurement Name** 
+
+- In the **Measurement Name** field, enter a descriptive name for the data series where captured data will be saved. 
+
+  <img
+    src="/images/r11.png"
+    alt="R11 Pn"
+    title="R11 Pn"
+    style={{ width:"42%" }}
+  />
+
+
+- Click the **Save All** button at the bottom of the window to apply and store your configuration.                           
+
+                          

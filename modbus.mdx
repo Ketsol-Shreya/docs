@@ -1,0 +1,101 @@
+---
+title: "Modbus Configuration Guide in KMS Application "
+description: "Description of your new file."
+---
+
+**1. Launch the KMS Application** 
+
+- Open the **KMS Application** on your system. 
+- You will land on the **Home Page**. 
+
+  <img
+    src="/home.png"
+    alt="image.png"
+    title="image.png"
+    style={{ width:"78%" }}
+  />
+
+**2.  Navigate to Communication Tab** 
+
+- On the home screen, click on the **Communication** tab. 
+- From the available communication options, **select “Modbus”**. 
+
+**3. Add ETL Configuration** 
+
+- Click on **Add MODBUS**. 
+- Enter the following details: 
+
+1. **ETL Name** 
+2. **IP Address**  
+3. **Port Number** (default Modbus TCP port is usually 502). 
+
+- Click **Connect** to establish communication. 
+
+![M2 Pn](/images/m2.png)
+
+**4.  Create Group Configuration** 
+
+- After successful connection, **add a new group** by entering: 
+- **Group Name** 
+- Fill in the following details for the group: 
+
+1. **Device ID** 
+2. **Address** 
+3. **Function Calls** (e.g., Read Holding Registers 03, etc.) 
+4. **Quantities** (number of Tags). 
+
+![M3 Pn](/images/m3.png)
+
+**5. Add Tags for the Group** 
+
+- Click on **Add Tags** to create individual tags within the group. 
+- For each tag, enter: 
+
+1. **Tag Name** 
+2. **Tag Address** 
+3. **Data Type** (e.g., INT, FLOAT, BOOL, etc.) 
+4. **Archive Option**: if selected, this tag will be archived for historical storage. 
+
+![M4 Pn](/images/m4.png)
+
+ 
+
+**6. Configure Static Context for Tags** 
+
+- After creating a tag, configure its **Static Context** by adding: 
+- **Static Context Name** 
+- **Static Context Value** 
+- This allows for defining fixed metadata or contextual information associated with the tag. 
+
+![M6 Pn](/images/m6.png)
+
+ 
+
+**7. Add Additional Groups** 
+
+- To create **another group**, click the **‘\+’ icon** at the top right corner. 
+- Repeat the same steps as above: 
+- Add group details (name, device ID, address, function calls, quantities). 
+- Add tags with tag details (name, address, data type, archive option). 
+- Add static context with new values as per requirements. 
+
+**8. Submit Configuration** 
+
+- Once all groups and tags are added, click **bottom right corner arrow icon**. 
+- The **Configuration Tab** will open automatically. 
+- Set: 
+
+1. **Logic Type**: Select appropriate logic for data processing. 
+2. **Archive Time**: set how often the data should be archived. 
+3. **Measurement Name**: assign a name for the measurement configuration. 
+
+<img
+  src="/images/m7.png"
+  alt="M7 Pn"
+  title="M7 Pn"
+  style={{ width:"41%" }}
+/>
+
+**9. Save the Configuration** 
+
+- Finally, click **Save** to store all configurations permanently. 
