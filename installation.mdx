@@ -1,30 +1,35 @@
 ---
 title: "User Installation Manual"
-description: "Product: KMS v2.1 (IOS)                                                                                                    Platform: Hyper-V / Bootable Media                                                                                                      Version: 2.1                                                                                                                                                               Publisher: KETSOL                                                                                                                                              "
+description: "Product: KMS                                                                                                                     Platform: Hyper-V / Bootable Media                                                                                                                                                                                                                                                                     Publisher: KETSOL                                                                                                                                              "
 ---
 
-## **1. Introduction**
+### **1. Introduction**
 
-This document serves as a comprehensive installation manual for the deployment of **KMS v2.1 (IOS)**. It encompasses both virtualized and physical installation strategies, with a focus on virtual machine deployment via Microsoft Hyper-V. Detailed attention is given to virtual hardware configuration, system initialization, Ubuntu operating system deployment, Docker environment setup, and network configuration.
+This document serves as a comprehensive installation manual for the deployment of **KMS **. It encompasses both virtualized and physical installation strategies, with a focus on virtual machine deployment via Microsoft Hyper-V. Detailed attention is given to virtual hardware configuration, system initialization, Ubuntu operating system deployment, Docker environment setup, and network configuration.
 
----
+###   Pre-requisites - 
 
-## **2. Deployment Approaches**
+- **RAM (Memory)** -Recommended: **32 GB RAM** 
+- Minimum: **16 GB RAM** (acceptable for limited use but not recommended for optimal performance). 
+- **Storage -** Type: **SSD (Solid State Drive)** – mandatory for faster performance. 
+- Minimum Capacity: **256 GB SSD** (128 GB may work, but 256 GB or higher is strongly recommended). 
+- **Processor (CPU) - **Preferred: **Intel Core i7** 
+- Minimum: **Intel Core i5** (only if i7 is not available). 
+- **Operating System (OS) - Windows 11 Pro** is required. 
+- **Windows Home Edition is not supported** – users must confirm the OS version. 
 
-KMS v2.1 supports two primary modes of installation:
+### **2. Deployment Approaches**
+
+KMS  supports two primary modes of installation:
 
 - **Virtualization via Hyper-V on Windows Operating System**
 - **Physical Deployment using a Bootable USB Drive**
 
 These methods provide flexibility depending on the end-user’s infrastructure and deployment preferences.
 
-> 📎 _[Insert image reference: Two Installation Options]_
+### **3. Virtual Machine Initialization**
 
----
-
-## **3. Virtual Machine Initialization**
-
-Upon successful acquisition of the `kms_2.1.ios` installation file, initiate the virtualization environment.
+Upon successful acquisition of the `kms` installation file, initiate the virtualization environment.
 
 - Launch **Hyper-V Manager**.
 - Navigate to the `Actions` panel and initiate the creation of a **New Virtual Machine**.
@@ -33,17 +38,23 @@ Assign an appropriate **virtual machine name** and specify the preferred **stora
 
 Memory configuration should be manually defined—**dynamic memory allocation must be disabled** to ensure consistent performance.
 
-> 📎 _[Insert image reference: VM Setup and Memory Configuration]_
+![1 Pn](/images/1.png)
+
+![2 Pn](/images/2.png)
 
 For network configuration, associate the VM with the **Default Switch** to allow virtual networking. Proceed to allocate **virtual hard disk space**—a **minimum of 500 GB** is mandatory to accommodate the KMS environment and containerized services.
 
-Mount the operating system by selecting the option to install from a **bootable CD/DVD image**, and browse to the `kms_2.1.ios` file to complete this step.
+Mount the operating system by selecting the option to install from a **bootable CD/DVD image**, and browse to the `kms` file to complete this step.
 
-> 📎 _[Insert image reference: OS Mounting]_
+![3 Pn](/images/3.png)
+
+![4 Pn](/images/4.png)
+
+![5 Pn](/images/5.png)
 
 ---
 
-## **4. VM System Settings Configuration**
+### **4. VM System Settings Configuration**
 
 Once the VM instance is created:
 
@@ -52,15 +63,19 @@ Once the VM instance is created:
 - Then, navigate to **Settings \> Management \> Checkpoints**.\
   Disable **Enable Checkpoints** to avoid unnecessary snapshot overhead during system updates.
 
-> 📎 _[Insert image reference: Secure Boot and Checkpoint Settings]_
+![6 Pn](/images/6.png)
+
+![7 Pn](/images/7.png)
 
 Proceed by **connecting to the VM** instance and initiating the **startup sequence**.
 
-> 📎 _[Insert image reference: VM Start Process]_
+![8 Pn](/images/8.png)
 
----
+![9 Pn](/images/9.png)
 
-## **5. Operating System Installation (Ubuntu)**
+![10 Pn](/images/10.png)
+
+### **5. Operating System Installation (Ubuntu)**
 
 As the system boots, select the installation prompt labeled **"Install KMS Version 3"**. The process may take several minutes.
 
@@ -70,8 +85,6 @@ Upon commencement of the Ubuntu setup:
 - Select **English (US)** for keyboard layout.
 - For installation type, opt to **Erase Disk and Install Ubuntu**.
 - Select the appropriate **timezone** corresponding to your region.
-
-> 📎 _[Insert image reference: Language, Keyboard, and Disk Setup]_
 
 During the user setup stage, input the following:
 
@@ -83,15 +96,17 @@ During the user setup stage, input the following:
 
 Enable the setting for **automatic login** to streamline subsequent access.
 
-> 📎 _[Insert image reference: User Credential Setup]_
+![15 Pn](/images/15.png)
 
 Complete the installation by **restarting the system**.
 
 ---
 
-## **6. Post-Installation Terminal Configuration**
+### **6. Post-Installation Terminal Configuration**
 
 After rebooting, navigate to the **Activities menu** and launch the **Terminal (xfce Terminal)**.
+
+![20 Pn](/images/20.png)
 
 To verify Docker functionality and image availability, execute:
 
@@ -114,24 +129,24 @@ CopyEdit
 `cd /KMS docker compose pull sudo docker compose pull `
 
 > When prompted, enter the password: `Ketsol123$`
-
-> 📎 _[Insert image reference: Docker Terminal Commands]_
+>
+> ![21 Pn](/images/21.png)
 
 ---
 
-## **7. Network Configuration**
+### **7. Network Configuration**
 
-### **Virtual Network Preparation in Hyper-V**
+### Virtual Network Preparation in Hyper-V
 
 Ensure the following IP configurations are applied within Hyper-V:
 
 - Assign `192.168.100.2` as the IP for **KMS Internal Network**.
-- Enable **sharing** on the internal network adapter (Neternet).
+- Enable **sharing** on the internal network adapter (KMSINTERNET).
 - For PLC connectivity, configure the **External Adapter** using the IP address designated for your PLC infrastructure.
 
-> 📎 _[Insert image reference: Hyper-V Network Adapter Settings]_
+![22 Pn](/images/22.png)
 
-### **Ubuntu Wired Interface Setup**
+### Ubuntu Wired Interface Setup
 
 On the Ubuntu desktop interface:
 
@@ -139,11 +154,22 @@ On the Ubuntu desktop interface:
 - Choose **Wired Settings** to manage Ethernet interfaces.
 - Available adapters such as **eth0**, **eth1**, and **eth2** will be visible. Select the appropriate one for configuration.
 
-> 📎 _[Insert image reference: Wired Network Settings]_
+  <img
+    src="/images/23.png"
+    alt="23 Pn"
+    title="23 Pn"
+    style={{ width:"100%" }}
+  />
+
+![24 Pn](/images/24.png)
+
+![25 Pn](/images/25.png)
 
 Choose between **Automatic (DHCP)** or **Manual (Static IP)** assignment based on the network policy.
 
 ---
+
+![26 Pn](/images/26.png)
 
 ## **8. Finalization and System Access**
 
@@ -152,5 +178,3 @@ Upon completion of all prior configurations, the KMS system becomes accessible v
 > [**http://192.168.100.2**](http://192.168.100.2)
 
 Ensure that the system is set to **share the connection** with other devices on the network.
-
-> 📎 _[Insert image reference: IP Confirmation and Access Screen]_
