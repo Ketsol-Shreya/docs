@@ -1,0 +1,121 @@
+---
+title: "Gateway Architecture Setup Guide"
+---
+
+### **1. Download the Gateway Package**
+
+- Obtain the Gateway package from the official KETSOL source.
+- Copy the downloaded `.zip` file into a designated folder on your local system.
+
+---
+
+### **2. Extract the Files**
+
+- Unzip the package using a tool like **WinRAR** or **7-Zip**.
+- Confirm that the extracted folder contains:
+  - `gateway.exe`
+  - `install.bat`
+  - `config.ini`
+
+    ![G1 Pn](/images/g1.png)
+
+---
+
+### **3. Edit the Configuration File**
+
+- Open the extracted folder.
+- Right-click on `config.ini` and open it in **Notepad** or any text editor.
+- Update the following parameters:
+  - **Host IP**: Enter the IP address of the KMS application server.
+  - **Gateway ID**: Provide a unique identifier for the gateway device.
+
+    ![G2 Pn](/images/g2.png)
+
+---
+
+### **4. Install the Gateway as a Service**
+
+- Double-click `install.bat` to install the gateway service.
+- This step ensures the gateway runs in the background automatically.
+
+  ![G3 Pn](/images/g3.png)
+
+_Essential for systems where the gateway must persist as a background service._
+
+---
+
+### **5. Start the Gateway Manually (Optional)**
+
+- To start the gateway manually, double-click `gateway.exe`.
+
+  ![G4 Pn](/images/g4.png)
+
+---
+
+### **6. Configure the Gateway ID**
+
+- Reopen `config.ini` and paste the **generated Gateway ID** into the correct section.
+- Before saving:
+- Use the command:
+- `ping 192.168.100.1 ,`to confirm connectivity to the KMS.
+- Ensure **MQTT status shows 'Connected'**.
+- Save the configuration file.
+
+  ![G5 Pn](/images/g5.png)
+
+---
+
+### **7. Configure Communication in KMS**
+
+- Launch the **KETSOL Manufacturing Suite**.
+- Navigate to **Communication** and select **Gateway**
+- Click **Add Connection** and provide:
+  - **Name**: Logical name for the gateway
+  - **ID**: Gateway ID copied earlier from `config.ini`
+- Click the added connection to:
+  - Configure **Server**
+  - Assign necessary **Tags**
+
+    ![Home Pn](/home.png)
+
+    ![G1 Pn](/g1.png)
+
+    ![G2 Pn](/g2.png)
+
+![G8 Pn](/images/g8.png)
+
+![G9 Pn](/images/g9.png)
+
+---
+
+### **8. Configure Measurement Parameters**
+
+- Enter **Measurement Name**
+- Set **Scan Type** to `down`
+- Provide **Interval Time** in milliseconds or seconds.
+
+  ![G10 Pn](/images/g10.png)
+
+### Trigger Setup (Optional):
+
+- **Trigger Name**: Customizable
+- **Tag**: Select from tag list (e.g., from table or server)
+- Triggers are used only for **event-based** data collection.
+
+  ![G11 Pn](/images/g11.png)
+
+---
+
+<Note>
+  **Debugging Gateway Communication**
+
+  If communication fails:
+
+  1. Go to File and Check Log File
+  2. Interpretation:
+
+  - **Log File Exists** → Possible communication issue
+  - **Log File Missing** → Communication is likely functioning correctly
+</Note>
+
+![G12 Pn](/images/g12.png)
