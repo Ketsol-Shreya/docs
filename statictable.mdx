@@ -1,0 +1,68 @@
+---
+title: "Static Table Configuration"
+description: "The Static Table allows fixed-value display with cell-specific formatting, aggregation, and filters. Since many features are identical to the Table Widget, only distinct or additional configurations are explained here."
+---
+
+## **1. Selecting the Static Table**
+
+- Select **“Static Table”** from the available table types under the **Table Group** panel.
+
+<img
+  src="/images/stat1.png"
+  alt="Stat1 Pn"
+  title="Stat1 Pn"
+  style={{ width:"60%" }}
+/>
+
+---
+
+## **2. Widget Header Properties**
+
+The **Header Properties** in Static Table are **identical to those in the Table Widget**:
+
+- **Title Text**, **Font Size**, **Font Weight**, **Alignment**, and **Font Color**
+- **Additional Properties** such as:
+  - Enable Date range
+  - Upload left/right logos
+
+---
+
+## **3. Table Properties**
+
+After opening the Static Table, you'll find that **general table properties** (e.g., Text Formatting, table source columns, Grouping, Aggregation, Sorting  ) mirror those of the Table Widget.
+
+However, individual **cell-level settings** differ and are described below.
+
+---
+
+## **4. Configuring Individual Cells**
+
+When you click on a cell in the table grid, **cell-specific configuration options** will appear on the right-hand panel.
+
+### **Cell 1: Time Column Configuration**
+
+- **Column**: Select the column name (e.g., `time`) from the dropdown.
+- **Aggregation**: **Mandatory** — choose a suitable function (e.g., `Max`, `Min`) for timestamp-related columns.
+- **Filter**: Not required in this case.
+- **Data Formatting**: Same as in Table Widget; select **Timestamp** format.
+  - Example: `MM/dd/yyyy HH:mm`
+
+![Stat1 2 Pn](/images/stat1.2.png)
+
+---
+
+### **Cell 2: Data Column Configuration**
+
+For data cells like `table1_tag1_max`:
+
+- **Column**: Select the desired tag from the dropdown.
+- **Aggregation**: Choose based on your requirement (e.g., `Min`, `Avg`).
+- **Filter**: **Optional** — can be applied to show data conditionally.
+  - Example: `table1_tag1_max >= 100`
+- **Data Formatting**: Select **Decimal Point** with the required precision (e.g., `2`).
+- **Cell Color**: Use conditional color formatting.
+  - Example: `{table1.tag1} > 400` → Color: Red
+
+![Stat2 Pn](/images/stat2.png)
+
+![Statlast Pn](/images/statlast.png)

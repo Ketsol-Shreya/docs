@@ -89,9 +89,9 @@ Upon clicking on the **table area**, a new panel titled **Table Properties** app
 - Columns labeled A, B, C...
 - Rows labeled numerically.
 
-Clicking any cell activates cell editing and formatting options.
+Left click on left corner of table to activates table properties options.
 
-\*\*Table Properties – Text Formatting \*\*
+**Table Properties – Text Formatting** 
 
 Within the Table Text Formatter panel, you can configure:
 
@@ -125,7 +125,27 @@ Within the Table Text Formatter panel, you can configure:
 
 ---
 
+ Left Click of first row activates row properties options and  same left click of any column activates column properties options.
+
+right click on columns activates some properties options given below.
+
+![Column Display Pn](/images/columnDisplay.png)
+
 #### 10. Column Formatting and Key Selection
+
+- **Select a cell**, then **drag across adjacent cells** (horizontally), **Right-click** to open the contextual menu.
+
+The following options will appear:
+
+- 🔁 **Merge Horizontally** – Combines selected cells across a row.
+- 🔃 **Merge Vertically** – Combines selected cells down a column.
+- 🔓 **Unmerge** – Splits previously merged cells into individual cells.
+- 🧹 **Clear** – Removes all data and formatting from selected cells.
+- ❌ **Cancel** – Closes the context menu without changes.
+
+![Cell Drag Pn](/images/cellDrag.png)
+
+Click on left any cell activates cells properties options.
 
 **Key Selection**:
 
@@ -187,3 +207,51 @@ There are three primary options in the dropdown:
 - After widget placement, click the **Save icon** located at the **bottom-right corner** of the screen to preserve your changes.
 
   ![10 Pn](/10.png)
+
+### Static Table Configuration
+
+The Static Table allows fixed-value display with cell-specific formatting, aggregation, and filters. Since many features are identical to the Table Widget, only distinct or additional configurations are explained here.
+
+### **Selecting the Static Table**
+
+Select **“Static Table”** from the available table types under the **Table Group** panel.
+
+![Stat1 Pn](/images/stat1.png)
+
+### **Table Properties** 
+
+After opening the Static Table, you'll find that **general table properties** (e.g., Text Formatting, table source columns, Grouping, Aggregation, Sorting  ) mirror those of the Table Widget.
+
+However, individual **cell-level settings** differ and are described below.
+
+---
+
+### **Configuring Individual Cells** 
+
+When you click on a cell in the table grid, **cell-specific configuration options** will appear on the right-hand panel.
+
+### Cell 1: Time Column Configuration
+
+- **Column**: Select the column name (e.g., `time`) from the dropdown.
+- **Aggregation**: **Mandatory** — choose a suitable function (e.g., `Max`, `Min`) for timestamp-related columns.
+- **Filter**: Not required in this case.
+- **Data Formatting**: Same as in Table Widget; select **Timestamp** format.
+  - Example: `MM/dd/yyyy HH:mm`
+
+    ![Stat1 2 Pn](/images/stat1.2.png)
+
+---
+
+### **Cell 2: Data Column Configuration**
+
+- **Column**: Select the desired tag from the dropdown.
+- **Aggregation**: Choose based on your requirement (e.g., `Min`, `Avg`).
+- **Filter**: **Optional** — can be applied to show data conditionally.
+  - Example: `table1_tag1_max >= 100`
+- **Data Formatting**: Select **Decimal Point** with the required precision (e.g., `2`).
+- **Cell Color**: Use conditional color formatting.
+  - Example: `{table1.tag1} > 400` → Color: Red
+
+    ![Stat2 Pn](/images/stat2.png)
+
+![Statlast Pn](/images/statlast.png)
