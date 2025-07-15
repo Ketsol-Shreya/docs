@@ -24,7 +24,7 @@ This document serves as a comprehensive installation manual for the deployment o
 
 ### **1. Enable Hyper-V on Windows** 
 
-1. Open **Start Menu**, type **Windows Features**, and click **Turn Windows features on or off**. 
+1. Open **Start Menu**, type **Windo ws Features**, and click **Turn Windows features on or off**. 
 2. In the Windows Features dialog: 
 
 - Scroll to **Hyper-V**. 
@@ -35,15 +35,20 @@ This document serves as a comprehensive installation manual for the deployment o
 3. Click **OK**. 
 4. Restart your PC when prompted. 
 
- 
+<img
+  src="/images/ins1.png"
+  alt="Ins1 Pn"
+  title="Ins1 Pn"
+  style={{ width:"48%" }}
+/>
 
  
 
-**2. Verify Hyper-V Installation**  
+### **2. Verify Hyper-V Installation**  
 
 - After restarting, open **Control Panel** ➔ **Programs and Features** ➔ **Turn Windows features on or off** ➔ confirm **Hyper-V** is checked. 
 
-**3. Create Virtual Machine in Hyper-V** 
+### **3. Create Virtual Machine in Hyper-V** 
 
 1. Open **Hyper-V Manager**. 
 2. Click **New** ➔ **Virtual Machine**, follow the wizard: 
@@ -56,13 +61,30 @@ This document serves as a comprehensive installation manual for the deployment o
 
 3. Complete the wizard and finish VM creation. 
 
- 
+![Ins2 Pn](/images/ins2.png)
 
- 
+<img
+  src="/images/ins3.png"
+  alt="Ins3 Pn"
+  title="Ins3 Pn"
+  style={{ width:"73%" }}
+/>
 
- 
+<img
+  src="/images/ins4.png"
+  alt="Ins4 Pn"
+  title="Ins4 Pn"
+  style={{ width:"73%" }}
+/>
 
-**4. Configure Hyper-V Networking**    
+<img
+  src="/images/ins5.png"
+  alt="Ins5 Pn"
+  title="Ins5 Pn"
+  style={{ width:"75%" }}
+/>
+
+### **4. Configure Hyper-V Networking**    
 
 **_A. Configure Static IP for Virtual Switch_**\_ \_
 
@@ -76,6 +98,13 @@ This document serves as a comprehensive installation manual for the deployment o
 
 4. Click **OK**, then **Close**. 
 
+<img
+  src="/images/ins6.png"
+  alt="Ins6 Pn"
+  title="Ins6 Pn"
+  style={{ width:"63%" }}
+/>
+
  
 
 **_B. Set up Virtual Switch_**\_ \_
@@ -86,11 +115,16 @@ This document serves as a comprehensive installation manual for the deployment o
 4. Enable, **Allow other network users to connect through this computer’s Internet connection**. 
 5. From the dropdown, select **vEthernet (V Internet KMS)** (your Hyper-V virtual switch). 
 
- 
+   <img
+     src="/images/ins7.png"
+     alt="Ins7 Pn"
+     title="Ins7 Pn"
+     style={{ width:"48%" }}
+   />
 
- 
+    
 
- **5. Add Network Adapters** 
+###  **5. Add Network Adapters** 
 
 1. In Hyper-V Manager, right-click your VM ➔ **Settings**. 
 2. Under **Hardware**, add network adapters as needed: 
@@ -102,18 +136,39 @@ This document serves as a comprehensive installation manual for the deployment o
 
 - Click **Apply**, then **OK**. 
 
- 
+<img
+  src="/images/ins8.png"
+  alt="Ins8 Pn"
+  title="Ins8 Pn"
+  style={{ width:"68%" }}
+/>
 
- 
+<img
+  src="/images/ins9.png"
+  alt="Ins9 Pn"
+  title="Ins9 Pn"
+  style={{ width:"67%" }}
+/>
 
-**6. Start & Configure the VM** 
+<img
+  src="/images/ins10.png"
+  alt="Ins10 Pn"
+  title="Ins10 Pn"
+  style={{ width:"66%" }}
+/>
+
+### **6. Start & Configure the VM** 
 
 1. Start the VM from Hyper-V Manager. 
 
- \
- \
- 
+   <img
+     src="/images/ins11.png"
+     alt="Ins11 Pn"
+     title="Ins11 Pn"
+     style={{ width:"80%" }}
+   />
 
+    
 2. Login with default credentials: 
 
 - **Username**: root 
@@ -121,9 +176,9 @@ This document serves as a comprehensive installation manual for the deployment o
 
 3. Run basic network configuration commands in VM terminal: 
 
-**_Configure Interfaces:_**\_ \_
+**_Configure Interfaces:_\_ \_**
 
- 
+![Ins12 Pn](/images/ins12.png)
 
 - For **eth0** (KMS network): 
 
@@ -149,7 +204,7 @@ This document serves as a comprehensive installation manual for the deployment o
 
  
 
-**7. Access KMS software**   
+### **7. Access KMS software**   
 
 - Open the browser on your laptop. 
 - Navigate to [<u>http://192.168.100.2</u>](http://192.168.100.2) (or the IP you set on **eth0**). 
